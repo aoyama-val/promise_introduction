@@ -1,6 +1,6 @@
 // Promise.resolve(x)は
 // new Promise(function(resolve, reject) {
-//     return x;
+//     resolve(x);
 // })
 // と同じです
 var p1 = Promise.resolve(123);
