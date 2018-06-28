@@ -10,7 +10,7 @@ p.then(function(result) {
     console.log("result", result);
     // => result 123
 
-    // .thenの中でPromiseオブジェクトを返すと、そのPromiseが実行された後で次の.thenが実行されます。
+    // .thenの中でPromiseオブジェクトを返すと、そのPromiseが完了した後で次の.thenが実行されます。
     return new Promise(function(resolve, reject) {
         resolve(result + 200);
     });

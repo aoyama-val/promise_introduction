@@ -2,24 +2,24 @@
 //   直列実行の途中でエラーが発生した場合は、.catchが呼ばれます
 //=============================================================================
 
-var f1 = function(result) {
-    console.log("p1 called");
+var task1 = function(result) {
+    console.log("task1 called");
     return result + 10;
 };
 
-var f2 = function(result) {
-    console.log("p2 called");
+var task2 = function(result) {
+    console.log("task2 called");
     throw "hoge";
     return result + 20;
 };
 
-var f3 = function(result) {
+var task3 = function(result) {
     // ここは呼ばれません
-    console.log("p3 called");
+    console.log("task3 called");
     return result + 30;
 };
 
-[f1, f2, f3].reduce(function(s, x) { return s.then(x); }, Promise.resolve(1))
+[task1, task2, task3].reduce(function(promise, task) { return promise.then(task); }, Promise.resolve(1))
 .then(function(result) {
     console.log("result", result);
 })

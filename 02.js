@@ -7,7 +7,8 @@ var p = new Promise(function(resolve, reject) {
     resolve(123);
 });
 
-// Promiseオブジェクトはthenというメソッドを持っています
+// Promiseオブジェクトはthenというメソッドを持っています。
+// thenの引数には関数を渡します。この関数のことをタスクといいます。
 p.then(function(result) {
     console.log("result", result);
     // => result 123
